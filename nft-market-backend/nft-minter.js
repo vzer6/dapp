@@ -8,7 +8,7 @@ export async function mint(to,uri){
     const signer = await provider.getSigner(0);
     const contractAddress = process.env.NFT;
     const abi = JSON.parse(fs.readFileSync('./abis/MyNFT.json').toString());
-    const contract = new ethers.Contract("0x5FbDB2315678afecb367f032d93F642f64180aa3", abi, provider);
+    const contract = new ethers.Contract("0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512", abi, provider);
     const result = await contract.connect(signer).safeMint(to,uri);
     console.log(result.hash);
 }

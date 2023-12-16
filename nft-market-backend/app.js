@@ -50,7 +50,7 @@ app.post('/upload', (req, res) => {
         const jsonResult = await addJSONToIPFS(metadata)
         console.log('Metadata added to IPFS:', jsonResult.cid.toString());
 
-        const userAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266" || process.env.ADDRESS;
+        const userAddress = address || process.env.ADDRESS;
         await mint(userAddress, 'http://127.0.0.1:8080/ipfs/' + jsonResult.cid.toString())
 
         res.json({ 
